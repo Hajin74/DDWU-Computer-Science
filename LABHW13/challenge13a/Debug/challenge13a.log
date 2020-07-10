@@ -1,0 +1,3 @@
+﻿  challenge13a.c
+C:\Users\유하진\Desktop\프논이 유하진\LABHW13\challenge13a\challenge13a.c(7,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+  challenge13a.vcxproj -> C:\Users\유하진\Desktop\프논이 유하진\LABHW13\Debug\challenge13a.exe
