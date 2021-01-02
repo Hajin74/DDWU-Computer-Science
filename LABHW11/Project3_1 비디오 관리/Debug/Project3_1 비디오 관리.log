@@ -1,0 +1,8 @@
+﻿  Project3_1 비디오 관리.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW11\Project3_1 비디오 관리\Project3_1 비디오 관리.c(61,38): warning C4047: '=': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW11\Project3_1 비디오 관리\Project3_1 비디오 관리.c(73,27): warning C4047: '<': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW11\Project3_1 비디오 관리\Project3_1 비디오 관리.c(123,73): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW11\Project3_1 비디오 관리\Project3_1 비디오 관리.c(123,73): warning C4024: 'rentVideo': 형식 및 실제 매개 변수 6의 형식이 서로 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW11\Project3_1 비디오 관리\Project3_1 비디오 관리.c(127,37): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW11\Project3_1 비디오 관리\Project3_1 비디오 관리.c(127,37): warning C4024: 'printAllRent': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+  Project3_1 비디오 관리.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW11\Debug\Project3_1 비디오 관리.exe

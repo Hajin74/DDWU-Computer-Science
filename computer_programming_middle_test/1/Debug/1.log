@@ -1,0 +1,6 @@
+﻿  1.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\computer_programming_middle_test\1\1.c(33,15): warning C4101: 'b' :참조되지 않은 지역 변수입니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\computer_programming_middle_test\1\1.c(32,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\computer_programming_middle_test\1\1.c(32,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\computer_programming_middle_test\1\1.c(17): warning C4716: 'printArray': 값을 반환해야 합니다.
+  1.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\computer_programming_middle_test\Debug\1.exe

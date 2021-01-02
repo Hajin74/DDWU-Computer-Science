@@ -1,0 +1,4 @@
+﻿  HW12_2.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\HW12_2\HW12_2.c(61,17): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\HW12_2\HW12_2.c(88,17): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  HW12_2.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Debug\HW12_2.exe

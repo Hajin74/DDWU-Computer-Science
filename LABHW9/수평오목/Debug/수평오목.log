@@ -1,0 +1,3 @@
+﻿  수평오목.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW9\수평오목\수평오목.c(9,7): warning C4101: 'ch' :참조되지 않은 지역 변수입니다.
+  수평오목.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW9\Debug\수평오목.exe

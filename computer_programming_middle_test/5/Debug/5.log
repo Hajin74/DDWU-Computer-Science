@@ -1,0 +1,3 @@
+﻿  5.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\computer_programming_middle_test\5\5.c(9,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+  5.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\computer_programming_middle_test\Debug\5.exe

@@ -1,0 +1,5 @@
+﻿  LAB9_5.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW9\LAB9_5\LAB9_5.c(13,6): warning C4013: 'gets'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW9\LAB9_5\LAB9_5.c(22,52): warning C4013: 'atoi'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW9\LAB9_5\LAB9_5.c(9,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+  LAB9_5.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW9\Debug\LAB9_5.exe

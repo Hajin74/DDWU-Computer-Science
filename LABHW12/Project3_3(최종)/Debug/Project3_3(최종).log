@@ -1,0 +1,16 @@
+﻿  Project3_3(최종).c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(55,50): warning C4047: '함수': 'int'의 간접 참조 수준이 'int *'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(55,50): warning C4024: 'searchVideoByTitle': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(78,7): warning C4013: 'exit'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(145,11): warning C4477: 'scanf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'char **'입니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(148,48): warning C4047: '함수': 'char *'의 간접 참조 수준이 'char *[100]'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(148,48): warning C4024: 'purchaseVideo': 형식 및 실제 매개 변수 3의 형식이 서로 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(153,11): warning C4477: 'scanf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'char **'입니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(154,73): warning C4047: '함수': 'char *'의 간접 참조 수준이 'char *[100]'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(154,73): warning C4024: 'searchVideoByTitle': 형식 및 실제 매개 변수 3의 형식이 서로 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(164,11): warning C4477: 'scanf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'char **'입니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(167,36): warning C4047: '함수': 'int *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(167,36): warning C4024: 'rentVideo': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(167,65): warning C4047: '함수': 'char *'의 간접 참조 수준이 'char *[100]'과(와) 다릅니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Project3_3(최종)\Project3_3(최종).c(167,65): warning C4024: 'rentVideo': 형식 및 실제 매개 변수 5의 형식이 서로 다릅니다.
+  Project3_3(최종).vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW12\Debug\Project3_3(최종).exe
