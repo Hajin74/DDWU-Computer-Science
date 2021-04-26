@@ -1,0 +1,11 @@
+// 컴퓨터학과 20200988 유하진
+public class Practice15 {
+	public static int whoswin(String com, String you) {
+		
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+}

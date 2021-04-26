@@ -1,0 +1,24 @@
+// 컴퓨터학과 20200988 유하진
+import java.util.Scanner;
+
+public class Practice13 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		
+		String user1, user2;
+		
+		do {
+			System.out.print("철수의 입력: ");
+			user1 = input.next();	
+			
+			if(!(user1.equals("가위") || user1.equals("바위") || user1.equals("보"))) {
+				System.out.println("잘못된 입력입니다. 다시 입력하세요.");
+			}
+			
+		} while(!(user1.equals("가위") || user1.equals("바위") || user1.equals("보")));
+		
+		input.close();
+	}
+	
+}

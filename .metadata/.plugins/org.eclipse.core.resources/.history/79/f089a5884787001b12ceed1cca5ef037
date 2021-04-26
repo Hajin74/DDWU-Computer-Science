@@ -1,0 +1,17 @@
+// 컴퓨터학과 20200988 유하진
+public class Practice18 {
+
+	public static int searchArray(int[] array, int key) {
+		
+	}
+	
+	public static void printArray(int[] array) {
+		
+	}
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

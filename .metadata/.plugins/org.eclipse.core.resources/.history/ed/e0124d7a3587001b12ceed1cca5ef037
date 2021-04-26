@@ -1,0 +1,59 @@
+// 컴퓨터학과 20200988 유하진
+import java.util.Scanner;
+import java.util.Random;
+
+public class Practice14 {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Random rg = new Random();
+		
+		int randomNum = rg.nextInt(3);
+		String computer;
+		
+		switch(randomNum) {
+			case 0: 
+				computer = "가위";
+				break;
+			case 1:
+				computer = "바위";
+				break;
+			case 2:
+				computer = "보";
+				break;
+		}
+		System.out.println("컴퓨터의 생성: 가위");
+		
+		System.out.print("당신의 입력: ");
+		String user = input.next();
+		
+		if(user.equals("가위")) {
+			if(randomNum == 0) {
+				System.out.println("비겼습니다.");
+			} else if(randomNum == 1) {
+				System.out.println("컴퓨터가 이겼습니다.");
+			} else {
+				System.out.println("당신이 이겼습니다.");
+			}
+		} else if(user.equals("바위")) {
+			if(randomNum == 0) {
+				System.out.println("당신이 이겼습니다.");
+			} else if(randomNum == 1) {
+				System.out.println("비겼습니다.");
+			} else {
+				System.out.println("컴퓨터가 이겼습니다.");
+			}
+		} else {
+			if(randomNum == 0) {
+				System.out.println("컴퓨터가 이겼습니다.");
+			} else if(randomNum == 1) {
+				System.out.println("당신이 이겼습니다.");
+			} else {
+				System.out.println("비겼습니다.");
+			}
+		}
+		
+		input.close();
+	}
+
+}
