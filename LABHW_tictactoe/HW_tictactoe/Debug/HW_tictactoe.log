@@ -1,0 +1,3 @@
+﻿  HW_tictactoe.c
+C:\Users\yoonm\Desktop\문제해결기법\LABHW_tictactoe\HW_tictactoe\HW_tictactoe.c(8,7): warning C4101: 'ch' :참조되지 않은 지역 변수입니다.
+  HW_tictactoe.vcxproj -> C:\Users\yoonm\Desktop\문제해결기법\LABHW_tictactoe\Debug\HW_tictactoe.exe
