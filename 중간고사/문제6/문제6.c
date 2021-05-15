@@ -1,6 +1,3 @@
-// 20200988 À¯ÇÏÁø
-#include <stdio.h>
-
 #include <stdio.h>
 
 int main(void) {
