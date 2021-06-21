@@ -1,0 +1,4 @@
+﻿  LAB(행렬합_정적할당).c
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review10\LAB(행렬합_정적할당)\LAB(행렬합_정적할당).c(8,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int (*)[4]'입니다.
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review10\LAB(행렬합_정적할당)\LAB(행렬합_정적할당).c(9,9): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int (*)[4]'입니다.
+  LAB(행렬합_정적할당).vcxproj -> C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review10\Debug\LAB(행렬합_정적할당).exe

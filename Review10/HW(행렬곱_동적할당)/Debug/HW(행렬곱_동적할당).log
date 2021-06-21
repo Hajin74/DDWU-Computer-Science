@@ -1,0 +1,5 @@
+﻿  HW(행렬곱_동적할당).c
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review10\HW(행렬곱_동적할당)\HW(행렬곱_동적할당).c(51,30): warning C4101: 'xRow' :참조되지 않은 지역 변수입니다.
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review10\HW(행렬곱_동적할당)\HW(행렬곱_동적할당).c(53,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review10\HW(행렬곱_동적할당)\HW(행렬곱_동적할당).c(51,36): warning C4101: 'xCol' :참조되지 않은 지역 변수입니다.
+  HW(행렬곱_동적할당).vcxproj -> C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review10\Debug\HW(행렬곱_동적할당).exe

@@ -1,0 +1,4 @@
+﻿  5.c
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\문해기 2021 기말고사\5\5.c(7,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\문해기 2021 기말고사\5\5.c(7,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+  5.vcxproj -> C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\문해기 2021 기말고사\Debug\5.exe

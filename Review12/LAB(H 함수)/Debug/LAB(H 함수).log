@@ -1,0 +1,5 @@
+﻿  LAB(H 함수).c
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review12\LAB(H 함수)\LAB(H 함수).c(6,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review12\LAB(H 함수)\LAB(H 함수).c(33,18): warning C4013: 'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review12\LAB(H 함수)\LAB(H 함수).c(39,6): warning C4013: 'free'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  LAB(H 함수).vcxproj -> C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review12\Debug\LAB(H 함수).exe

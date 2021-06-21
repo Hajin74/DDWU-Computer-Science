@@ -1,0 +1,3 @@
+﻿  LAB(matrixpath_memo).c
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review13\LAB(matrixpath_memo)\LAB(matrixpath_memo).c(34): warning C4715: 'matrixpath_memo': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  LAB(matrixpath_memo).vcxproj -> C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\Review13\Debug\LAB(matrixpath_memo).exe

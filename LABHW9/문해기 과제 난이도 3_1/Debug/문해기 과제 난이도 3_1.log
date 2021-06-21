@@ -1,0 +1,8 @@
+﻿  문해기 과제 난이도 3_1.c
+  문해기 과제 난이도 3_2.c
+  코드를 생성하고 있습니다...
+문해기 과제 난이도 3_2.obj : error LNK2005: _main이(가) 문해기 과제 난이도 3_1.obj에 이미 정의되어 있습니다.
+문해기 과제 난이도 3_2.obj : error LNK2005: _merge이(가) 문해기 과제 난이도 3_1.obj에 이미 정의되어 있습니다.
+문해기 과제 난이도 3_2.obj : error LNK2005: _mergeSort이(가) 문해기 과제 난이도 3_1.obj에 이미 정의되어 있습니다.
+문해기 과제 난이도 3_2.obj : error LNK2005: _printArr이(가) 문해기 과제 난이도 3_1.obj에 이미 정의되어 있습니다.
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\LABHW9\Debug\문해기 과제 난이도 3_1.exe : fatal error LNK1169: 여러 번 정의된 기호가 있습니다.
