@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        table {
+            width: 50%;
+            height: 500px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 2px solid white;
+        }
+        
+        thead{
+            height: 10%;
+            font-size: 23px;
+            background-color: rgb(183, 188, 216);
+        }
+
+        tbody tr:first-child {
+            background-color: rgb(220, 223, 241);
+        }
+
+        tbody tr:last-child{
+            height: 10%;
+            background-color: rgb(183, 188, 216);
+        }
+
+        tbody td {
+            width: 50%;
+        }
+
+        input {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        function calc() {
+            var exp = prompt("계산할 수식을 입력하세요");
+
+            if(!null) {
+                var result = eval(exp);
+                alert(result);
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">계산기</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <img src="./images/calculator.png" alt="calculator">
+                </td>
+                <td>
+                    <input type="button" value="계산하기" onClick="calc()">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
