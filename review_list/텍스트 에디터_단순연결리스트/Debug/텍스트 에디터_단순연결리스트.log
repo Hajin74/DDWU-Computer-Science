@@ -1,0 +1,3 @@
+﻿  텍스트 에디터_단순연결리스트.c
+C:\Users\yoonm\OneDrive\바탕 화면\자료구조\review_list\텍스트 에디터_단순연결리스트\텍스트 에디터_단순연결리스트.c(110,12): warning C4101: 'removed' :참조되지 않은 지역 변수입니다.
+  텍스트 에디터_단순연결리스트.vcxproj -> C:\Users\yoonm\OneDrive\바탕 화면\자료구조\review_list\Debug\텍스트 에디터_단순연결리스트.exe
