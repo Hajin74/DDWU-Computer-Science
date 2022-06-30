@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/addMemo"
+        android:onClick="onMenuItemClick"
+        android:title="메모 추가" />
+    <item
+        android:id="@+id/introDev"
+        android:onClick="onMenuItemClick"
+        android:title="개발자 소개" />
+    <item
+        android:id="@+id/offApp"
+        android:onClick="onMenuItemClick"
+        android:title="앱 종료" />
+</menu>
