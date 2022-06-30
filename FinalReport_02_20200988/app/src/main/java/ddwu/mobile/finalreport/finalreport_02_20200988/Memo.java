@@ -94,5 +94,5 @@ public class Memo implements Serializable {
         return sb.toString();
     }
 
-    // git practice
+    // git practice2git
 }
