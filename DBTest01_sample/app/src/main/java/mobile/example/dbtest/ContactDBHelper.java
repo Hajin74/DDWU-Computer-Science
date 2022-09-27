@@ -3,6 +3,7 @@ package mobile.example.dbtest;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class ContactDBHelper extends SQLiteOpenHelper {
 
@@ -15,12 +16,19 @@ public class ContactDBHelper extends SQLiteOpenHelper {
 	public final static String COL_CAT = "category";
 
 	public ContactDBHelper(Context context) {
+		// 1. db파일 생성
 		super(context, DB_NAME, null, 1);
 	}
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		
+		// 2. table 생성
+		String createSql = "create table " + TABLE_NAME + " ( _id integer primary key autoincrement, "
+				+ COL_NAME + " TEXT, " + COL_PHONE + " TEXT, " + COL_CAT + " TEXT);";
+
+		Log.d(TAG, createSql); // sql문이 잘 작성되었는지 확인
+
+		db.execSQL(createSql); // db를 바꾸는 작업
 	}
 
 	@Override
