@@ -13,6 +13,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Flowable;
+import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 public class  MainActivity extends AppCompatActivity {
 
     final static String TAG = "MainActivity";
@@ -21,7 +26,7 @@ public class  MainActivity extends AppCompatActivity {
     EditText etNation;
     ListView listView;
 
-//    ArrayAdapter<Food> adapter;
+    ArrayAdapter<Food> adapter;
 
     // Room
     FoodDB foodDB;
@@ -35,7 +40,9 @@ public class  MainActivity extends AppCompatActivity {
         etFood = findViewById(R.id.etFood);
         etNation = findViewById(R.id.etNation);
         listView = findViewById(R.id.listView);
-//        adapter = new ArrayAdapter<Food>(this, android.R.layout.simple_list_item_1, new ArrayList<Food>());
+
+        adapter = new ArrayAdapter<Food>(this, android.R.layout.simple_list_item_1, new ArrayList<Food>());
+        listView.setAdapter(adapter);
 
         // Room
         foodDB = Room.databaseBuilder(getApplicationContext(), FoodDB.class, "food_db.db").build();
@@ -51,12 +58,13 @@ public class  MainActivity extends AppCompatActivity {
 
         switch (v.getId()) {
             case R.id.btnInsert:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        foodDao.insertFood(new Food(food, nation));
-                    }
-                }).start();
+                Single<Long> insertResult = foodDao.insertFood(new Food(food, nation));
+
+                insertResult.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(result -> Log.d(TAG, "Insertion success: " + result),
+                                throwable -> Log.d(TAG, "error"));
+
                 break;
             case R.id.btnUpdate:
 
@@ -65,15 +73,18 @@ public class  MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.btnShow:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        List<Food> foodList = foodDao.getAllFoods();
-                        for (Food afood : foodList) {
-                            Log.d(TAG, afood.toString());
-                        }
-                    }
-                }).start();
+                Flowable<List<Food>> showResult = foodDao.getAllFoods();
+
+                showResult.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(foods -> {
+                            for (Food aFood : foods) {
+                                Log.d(TAG, aFood.toString());
+                            }
+                            adapter.clear();
+                            adapter.addAll(foods);
+                            // notify가 필요 없어짐
+                        }, throwable -> Log.d(TAG, "error", throwable));
                 break;
         }
     }
