@@ -16,6 +16,7 @@ import java.util.List;
 import io.reactivex.Flowable;
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class  MainActivity extends AppCompatActivity {
@@ -31,6 +32,9 @@ public class  MainActivity extends AppCompatActivity {
     // Room
     FoodDB foodDB;
     FoodDao foodDao;
+
+    // Disposable
+    private final CompositeDisposable mDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,11 @@ public class  MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDisposable.clear();
+    }
 
     public void onClick(View v) {
 
@@ -60,10 +69,12 @@ public class  MainActivity extends AppCompatActivity {
             case R.id.btnInsert:
                 Single<Long> insertResult = foodDao.insertFood(new Food(food, nation));
 
-                insertResult.subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(result -> Log.d(TAG, "Insertion success: " + result),
-                                throwable -> Log.d(TAG, "error"));
+                mDisposable.add(
+                    insertResult.subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(result -> Log.d(TAG, "Insertion success: " + result),
+                                    throwable -> Log.d(TAG, "error"))
+                );
 
                 break;
             case R.id.btnUpdate:
@@ -75,16 +86,19 @@ public class  MainActivity extends AppCompatActivity {
             case R.id.btnShow:
                 Flowable<List<Food>> showResult = foodDao.getAllFoods();
 
-                showResult.subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(foods -> {
-                            for (Food aFood : foods) {
-                                Log.d(TAG, aFood.toString());
-                            }
-                            adapter.clear();
-                            adapter.addAll(foods);
-                            // notify가 필요 없어짐
-                        }, throwable -> Log.d(TAG, "error", throwable));
+                mDisposable.add(
+                        showResult.subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(foods -> {
+                                    for (Food aFood : foods) {
+                                        Log.d(TAG, aFood.toString());
+                                    }
+                                    adapter.clear();
+                                    adapter.addAll(foods);
+                                    // notify가 필요 없어짐
+                                }, throwable -> Log.d(TAG, "error", throwable))
+                );
+
                 break;
         }
     }
