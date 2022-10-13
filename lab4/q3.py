@@ -1,19 +1,17 @@
-#!/usr/bin/python3
-import csv
+import openpyxl
 
-def read_csv(filepath):
-	elements = []
+wb = openpyxl.load_workbook("student.xlsx")
+ws = wb['Sheet1']
 
-	with open(filepath, 'r', encoding='utf-8') as fp:
-		reader = csv.reader(fp)
-		for row in reader:
-			total = (float)(row[2]) * 0.3 + (float)(row[3]) * 0.35 + (float)(row[4]) * 0.34 + (float)(row[5]) 
-			element = [row[0], row[1], row[2], row[3],row[4], row[5]]
-			element.append(total)
-			elements.append(element)
-	return elements
+row_id = 1
+for row in ws:
+	if row_id != 1:
+		sum_v = ws.cell(row = row_id, column = 3).value * 0.3
+		sum_v += ws.cell(row = row_id, column = 4).value * 0.35
+		sum_v += ws.cell(row = row_id, column = 5).value * 0.34
+		sum_v += ws.cell(row = row_id, column = 6).value
+		ws.cell(row = row_id, column = 7).value = sum_v
+	row_id += 1
 
-filepath = 'students.csv'
-elements = read_csv(filepath)
-for element in elements:
-	print("id:{}, name:{}, midterm:{}, final:{}, homework:{}, attendance:{}, total:{}".format(element[0],element[1],element[2],element[3],element[4],element[5],element[6]))
+wb.save("student.xlsx")
+
