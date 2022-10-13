@@ -17,7 +17,8 @@ for row in ws:
 	row_id += 1
 
 scores.sort(reverse=True)
-count = len(scores)
+scores_length = len(scores)
+grade_count = {'A0': 0, 'B0': 0, 'C0': 0}
 
 row_id = 1
 for row in ws:
@@ -26,15 +27,32 @@ for row in ws:
 		endIndex = scores.index(score)
 		endIndex += scores.count(score)
 
-		if endIndex <= count * 0.3:
+		if endIndex <= scores_length * 0.3:
 			grade = 'A0'
-		elif endIndex <= count * 0.7:
+		elif endIndex <= scores_length * 0.7:
 			grade = 'B0'
 		else:
 			grade = 'C0'
 
+		grade_count[grade] += 1
 		ws.cell(row = row_id, column = 8).value = grade
+
+	row_id += 1
+
+row_id = 1
+for row in ws:
+	if row_id != 1:
+		score = ws.cell(row = row_id, column = 7).value
+		endIndex = scores.index(score)
+		endIndex += scores.count(score)
+
+		if 0 <= endIndex and endIndex <= grade_count['A0'] * 0.5:
+			ws.cell(row = row_id, column = 8).value = 'A+'
+		elif grade_count['A0'] < endIndex and endIndex <= grade_count['A0'] + grade_count['B0'] * 0.5:
+			ws.cell(row = row_id, column = 8).value = 'B+'
+		elif grade_count['A0'] + grade_count['B0'] < endIndex and endIndex <= grade_count['A0'] + grade_count['B0'] + grade_count['C0'] * 0.5:
+			ws.cell(row = row_id, column = 8).value = 'C+'
 	row_id += 1
 
 wb.save("student.xlsx")
-
+#print(grade_count)
