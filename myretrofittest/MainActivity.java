@@ -1,90 +1,106 @@
-package ddwu.mobile.network.myretrofittest;
-
-import androidx.appcompat.app.AppCompatActivity;
+package ddwu.mobile.lecture.etc.myretrofittest;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 import java.util.List;
 
-import ddwu.mobile.network.myretrofittest.model.json.BoxOfficeRoot;
-import ddwu.mobile.network.myretrofittest.model.json.DailyBoxOffice;
+import ddwu.mobile.lecture.etc.myretrofittest.model.json.Book;
+import ddwu.mobile.lecture.etc.myretrofittest.model.json.BookRoot;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+
 public class MainActivity extends AppCompatActivity {
 
     final static String TAG = "MainActivity";
 
-    private Retrofit retrofit;
-    private IKobisAPIService iKobisAPIService;
-
     EditText editText;
-    TextView tvResult;
+    ListView listView;
+    ImageView imageView;
 
-    String apiUrl;
-    String apiKey;
+    String naverId;
+    String naverSecret;
+    ArrayAdapter<Book> adapter;
 
+    List<Book> books;
+    NaverAPIService naverAPIService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editText = findViewById(R.id.etDate);
-        tvResult = findViewById(R.id.tvResult);
 
-        apiUrl = getResources().getString(R.string.api_url);
-        apiKey = getResources().getString(R.string.kobis_key);
+        editText = findViewById(R.id.etQuery);
+        listView = findViewById(R.id.listView);
+        imageView = findViewById(R.id.imageView);
 
-        if(retrofit == null) {
-            try {
-                retrofit = new Retrofit.Builder()
-                        .baseUrl(apiUrl)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-            } catch(Exception e) {
-                e.printStackTrace();
+        books = new ArrayList<Book>();
+        adapter = new ArrayAdapter<Book>(this, android.R.layout.simple_list_item_1, books);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
             }
-        }
+        });
 
-        iKobisAPIService = retrofit.create(IKobisAPIService.class);
+        naverId = getResources().getString(R.string.client_id);
+        naverSecret = getResources().getString(R.string.client_secret);
+
+        // try 로 묶어줘야함 원래
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://openapi.naver.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        naverAPIService = retrofit.create(NaverAPIService.class);
     }
-
-
 
     public void onClick (View v) {
         switch (v.getId()) {
-            case R.id.button:
-                String targetDate = editText.getText().toString();
-                Call<BoxOfficeRoot> apiCall = iKobisAPIService.getDailyBoxOfficeResult("json", apiKey, targetDate);
-                apiCall.enqueue(apiCallback); // enqueue 비동기방식
+            case R.id.btnTest:
+                Call<BookRoot> apiCall = naverAPIService.getBookList(naverId, naverSecret, editText.getText().toString());
+                apiCall.enqueue(apiCallback);
+                break;
+            case R.id.btnSearch:
+                adapter.clear();
+                String query = editText.getText().toString();
+
+
                 break;
         }
     }
 
-    Callback<BoxOfficeRoot> apiCallback = new Callback<BoxOfficeRoot>() {
+    Callback<BookRoot> apiCallback = new Callback<BookRoot>() {
         @Override
-        public void onResponse(Call<BoxOfficeRoot> call, Response<BoxOfficeRoot> response) {
-            if(response.isSuccessful()) {
-                BoxOfficeRoot boxOfficeRoot = response.body();
-//                Log.d(TAG, ": " + boxOfficeRoot);
-                List<DailyBoxOffice> list =  boxOfficeRoot.getBoxOfficeResult().getDailyBoxOffice();
+        public void onResponse(Call<BookRoot> call, Response<BookRoot> response) {
+            BookRoot bookRoot = response.body();
+            List<Book> items= bookRoot.getItem();
 
-                for(DailyBoxOffice dbo : list) {
-                    Log.d(TAG, dbo.toString());
-                }
+            for(Book book : items) {
+                Log.d(TAG, book.toString());
             }
         }
 
         @Override
-        public void onFailure(Call<BoxOfficeRoot> call, Throwable t) {
-            Log.d(TAG, t.toString());
+        public void onFailure(Call<BookRoot> call, Throwable t) {
+
         }
     };
+
+
 }
