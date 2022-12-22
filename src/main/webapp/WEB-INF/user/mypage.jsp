@@ -71,7 +71,6 @@
 	
 		<div class="structure" style="width: 100%; border-top: 1px solid #efefef; display:flex; flex-direction: row; justify-content: space-evenly;">
 		
-			
 			<div class="info" style="width: 20%;" >
 		        <jsp:include page="userInfo.jsp">
 					<jsp:param name="userId" value="userId" />
@@ -84,17 +83,12 @@
 				</jsp:include>
 			</div>
 			
-			
 			<div class="dList" >
 				<jsp:include page="dibList.jsp" >
 					<jsp:param name="userID" value="userID" />
 					<jsp:param value="dibList" name="dibList" />
 				</jsp:include>
 			</div>
-			
-			
-			
-			
 			
 		</div>
 	<% } %>

@@ -92,17 +92,24 @@
 <body>
 	<div class="recommendbox">
 		<p class="list-cnt">💞 추천하는 강의 💞</p>
-		<c:forEach var="othDib" items="${othersDibList}">
-			<div class="card-border card recommend-card" style="width: 15rem;">
-				<div class="card-body">
-					<h5 class="card-title">${othDib.title}</h5>
-					${othDib.professor}
-					<p></p>
-					${othDib.lecID} <br>${othDib.week}[${othDib.lecTime}]
-					${othDib.loc}
+		
+		<c:if test="${othersDibList[0].lecID eq null}"> 
+			<h6 class="text-danger">⛔ 데이터가 충분하지 않아 추천할 강의가 없습니다. ⛔</h6>
+		</c:if>
+		
+		<c:if test="${othersDibList[0].lecID ne null}"> 
+			<c:forEach var="othDib" items="${othersDibList}">
+				<div class="card-border card recommend-card" style="width: 15rem;">
+					<div class="card-body">
+						<h5 class="card-title">${othDib.title}</h5>
+						${othDib.professor}
+						<p></p>
+						${othDib.lecID} <br>${othDib.week}[${othDib.lecTime}]
+						${othDib.loc}
+					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</c:if>
 	</div>
 	
 	<script
