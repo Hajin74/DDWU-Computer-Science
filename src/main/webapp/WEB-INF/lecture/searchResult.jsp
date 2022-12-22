@@ -184,24 +184,25 @@ input[type=checkbox] {
 	<jsp:include page="../nav.jsp"></jsp:include>
 
 	<div class="statusbox">
-		<form class="statusCheckFormCss" name="statusCheckForm">
-			<input type="checkbox" name="statusCheck" id="statusCheck"
-				value="statusIncludeO" /> 과거 수강한 강의 X
-		</form>
-
-		<c:forEach var="lec" items="${resultLecList}">
-			<div class="card-border card" style="width: 30rem;">
-				<div class="card-body">
-					<span class="card-title"> ${lec.title}
-						<button class="btn_delete" type="button">X</button>
-					</span><br> ${lec.professor}
-					<p></p>
-					${lec.lecID} <br>${lec.week}[${lec.lecTime}] ${lec.loc}
-					<button class="btn_wish" type="button">♡ 찜하기</button>
-					<button class="btn_wish" type="button">이미 수강됨</button>
+		<c:if test="${resultLecList ne '[]'}">
+			<form class="statusCheckFormCss" name="statusCheckForm">
+				<input type="checkbox" name="statusCheck" id="statusCheck" value="statusIncludeO" /> 과거 수강한 강의 X
+			</form>
+	
+			<c:forEach var="lec" items="${resultLecList}">
+				<div class="card-border card" style="width: 30rem;">
+					<div class="card-body">
+						<span class="card-title"> ${lec.title}
+							<button class="btn_delete" type="button">X</button>
+						</span><br> ${lec.professor}
+						<p></p>
+						${lec.lecID} <br>${lec.week}[${lec.lecTime}] ${lec.loc}
+						<button class="btn_wish" type="button">♡ 찜하기</button>
+						<button class="btn_wish" type="button">이미 수강됨</button>
+					</div>
 				</div>
-			</div>
-		</c:forEach>
+			</c:forEach>
+		</c:if>
 	</div>
 
 	<div class="totalresult">
