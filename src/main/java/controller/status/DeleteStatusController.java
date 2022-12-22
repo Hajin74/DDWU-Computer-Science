@@ -17,7 +17,7 @@ public class DeleteStatusController implements Controller {
 			String lecId = request.getParameter("lecID");
 
 			StatusManager manager = StatusManager.getInstance();
-			//manager.delete(stuId, lecId);
+//			manager.delete(stuId, lecId);
 
 		} catch (Exception e) {
 

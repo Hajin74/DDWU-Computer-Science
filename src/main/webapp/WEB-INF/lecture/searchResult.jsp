@@ -278,7 +278,7 @@ input[type=checkbox] {
 							</c:forEach>
 							<c:if test="${statusCheck}">
 								<button class="btn_wish btn_status btn_status_delete"
-									type="submit" onclick="status_Btn_Add()" name="statusId"
+									type="submit"  name="statusId"
 									value="${lec.lecID}">수강</button>
 							</c:if>
 						</form>
