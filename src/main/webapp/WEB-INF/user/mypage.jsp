@@ -26,19 +26,16 @@
 
 .info {
 	float: left;
-	width: 20%;
+	
 }
-
 .dList {
 	float: left;
-	width: 55%;
+	
 }
-
 .rlist {
 	float: right;
-	width: 15%;
+	
 }
-
 </style>
 
 </head>
@@ -66,7 +63,7 @@
 	} else { 
 		System.out.println("일반사용자시네요");
 	%>
-	<!--관리자가 아닌, 일반사용자라면  -->
+	<!--관리자가 아닌, 일반사용자라면-->
 		<jsp:include page="../header.jsp"></jsp:include>
 		<jsp:include page="../nav.jsp"></jsp:include>
 	
@@ -77,8 +74,9 @@
 					<jsp:param name="major" value="major" />
 		        </jsp:include>
       		</div>
+      		
 			<div class="dList"><jsp:include page="dibList.jsp"></jsp:include></div>
-     		<div class="rList"><jsp:include page="recommendList.jsp"></jsp:include></div>
+			<div class="rList"><jsp:include page="recommendList.jsp"></jsp:include></div>
 		</div>
 	<% } %>
 	</c:if>

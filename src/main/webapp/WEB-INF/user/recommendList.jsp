@@ -16,7 +16,9 @@
 	crossorigin="anonymous">
 
 <style>
-
+.recommendbox {
+	width: 100%;
+}
 
 .card-border {
 	color: #6f263d;
@@ -49,40 +51,8 @@
 </style>
 </head>
 <body>
-
-
-
 	<div class="recommendbox">
 		<p class="list-cnt">💞 추천하는 강의 💞</p>
-
-		<div class="card-border card recommend-card" style="width: 15rem;">
-			<div class="card-body">
-				<h5 class="card-title">알고리즘</h5>
-				한혁
-				<p></p>
-				화수 <br>
-			</div>
-		</div>
-		
-		<div class="card-border card recommend-card" style="width: 15rem;">
-			<div class="card-body">
-				<h5 class="card-title">알고리즘</h5>
-				한혁
-				<p></p>
-				화수 <br>
-			</div>
-		</div>
-		
-		<div class="card-border card recommend-card" style="width: 15rem;">
-			<div class="card-body">
-				<h5 class="card-title">알고리즘</h5>
-				한혁
-				<p></p>
-				화수 <br>
-			</div>
-		</div>
-
-
 		<c:forEach var="recLec" items="${recLecList}">
 			<div class="card-border card recommend-card" style="width: 15rem;">
 				<div class="card-body">
@@ -99,8 +69,9 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
-
+		crossorigin="anonymous">
+	</script>
+	
 </body>
 </html>
 

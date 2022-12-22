@@ -176,8 +176,9 @@ request.setAttribute("onOffList", onOffList);
 			</tr>
 			<tr>
 				<td class="keywordCatagory">👩‍ 수강인원</td>
-				<td><input type="number" class="occupancyBtn" name="occupancy"
-					min="1" max="200" required></td>
+				<td class="keywordhr">
+					<input type="number"class="occupancyBtn" name="occupancy" min="1" max="200" required>
+				</td>
 			</tr>
 			<tr>
 				<td class="keywordCatagory">🔖‍ 과거 수강</td>

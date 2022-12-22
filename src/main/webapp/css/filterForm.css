@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 .keywordBtn {
 	font-weight: bold;
 	color: #6f263d;
@@ -78,7 +79,6 @@ input[type=radio] {
 }
 
 .keywordTable {
-	margin: auto;
-	margin-top: 60px;
+	margin-top: 40px;
 	margin-bottom: 20px;
 }
