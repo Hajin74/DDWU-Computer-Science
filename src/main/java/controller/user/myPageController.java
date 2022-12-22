@@ -32,9 +32,14 @@ public class myPageController implements Controller {
 		if(updateId.equals("admin")) {
 			LectureManager manager = LectureManager.getInstance();
 	    	List<LectureDTO> lecList = manager.findLectureList();
-	    	System.out.println(lecList);
+	    	System.out.println("관리자가 보는 : " + lecList);
+	    	
+	    	UserManager userManager = UserManager.getInstance();
+	    	List<StudentDTO> stuList = userManager.showAllStudent();
+	    	System.out.println("관리자가 보는 : " + stuList);
 	    	
 	    	request.setAttribute("lecList", lecList);
+	    	request.setAttribute("stuList", stuList);
 	    				
 			return "/user/mypage.jsp";        
 		}

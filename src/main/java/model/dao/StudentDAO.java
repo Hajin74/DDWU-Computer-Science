@@ -101,9 +101,6 @@ public class StudentDAO {
 	 * [R] 주어진 사용자 ID에 해당하는 사용자 정보를 데이터베이스에서 찾아 StudentDTO 도메인 클래스에 저장하여 반환.
 	 */
 	public StudentDTO findUser(String stuId) throws SQLException {
-		
-		
-
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(url, user, passwd);
@@ -139,6 +136,36 @@ public class StudentDAO {
 		return null;
 	}
 
+	public List<StudentDTO> showAllStudent() throws SQLException {
+			
+			String sql = "select stuId, stuPw, major "
+					+ "from student";
+			
+			jdbcUtil.setSqlAndParameters(sql, null);
+			try {				
+				ResultSet rs = jdbcUtil.executeQuery(); 
+				List<StudentDTO> studentList = new ArrayList<StudentDTO>(); 
+				while (rs.next()) {
+					StudentDTO student = new StudentDTO(
+							rs.getString("stuId"), 
+							rs.getString("stuPw"),
+							rs.getString("major"));
+					studentList.add(student); 
+				}
+				System.out.println(studentList);
+				
+				return studentList;
+			} catch (Exception ex) {
+				jdbcUtil.rollback();
+				ex.printStackTrace();
+			}
+			finally {
+				jdbcUtil.commit();
+				jdbcUtil.close();	// resource 반환
+			} return null;		
+			
+		}
+	
 	/**
 	 * Student가 찜한 Lecture를 검색한 후 현재 페이지와 페이지당 출력할 Lecture 수를 이용하여 List에 저장하여 반환.
 	 */
