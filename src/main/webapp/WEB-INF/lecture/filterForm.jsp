@@ -5,15 +5,14 @@
 
 
 <%
-
-
-String[] locList = { "대학원", "동인관", "인문관", "약학관", "숭인관", "예지관", "백주년", "열린"};
+String[] locList = { "대학원", "동인관", "인문관", "약학관", "숭인관", "예지관", "백주년", "열린" };
 request.setAttribute("locList", locList);
 
 String[] lecTypeList = { "토론", "실기", "이론", "독서", "실습", "발표" };
 request.setAttribute("lecTypeList", lecTypeList);
 
-String[] interestList = { "경영", "경제", "교육", "기술", "과학", "데이터", "동양", "마케팅", "미디어", "문학", "법", "사회", "스포츠", "심리", "언어", "여성", "영화", "음악", "종교", "창작", "철학", "취업", "코딩", "환경"};
+String[] interestList = { "경영", "경제", "교육", "기술", "과학", "데이터", "동양", "마케팅", "미디어", "문학", "법", "사회", "스포츠", "심리", "언어",
+		"여성", "영화", "음악", "종교", "창작", "철학", "취업", "코딩", "환경" };
 request.setAttribute("interestList", interestList);
 
 String[] lecTimeList = { "1교시", "2교시", "3교시", "4교시", "5교시", "6교시", "열린" };
@@ -62,22 +61,18 @@ request.setAttribute("onOffList", onOffList);
 				<td class="keywordCatagory">🌟 중요도</td>
 				<td>
 					<div class="btn-group-toggle keywords" data-toggle="buttons">
-						
-							<label class="btn btn-primary keywordBtn"> <input
-								type="radio" name="priority" value="p1" required>
-								관심사 + 강의실
-							</label>
-							
-							<label class="btn btn-primary keywordBtn"> <input
-								type="radio" name="priority" value="p2" required>
-								관심사 + 강의 형식
-							</label>
-							
-							<label class="btn btn-primary keywordBtn"> <input
-								type="radio" name="priority" value="p3" required>
-								관심사 + 시간대
-							</label>
-						
+
+						<label class="btn btn-primary keywordBtn"> <input
+							type="radio" name="priority" value="p1" required> 관심사 +
+							강의실
+						</label> <label class="btn btn-primary keywordBtn"> <input
+							type="radio" name="priority" value="p2" required> 관심사 +
+							강의 형식
+						</label> <label class="btn btn-primary keywordBtn"> <input
+							type="radio" name="priority" value="p3" required> 관심사 +
+							시간대
+						</label>
+
 					</div>
 				</td>
 			</tr>
@@ -126,8 +121,9 @@ request.setAttribute("onOffList", onOffList);
 				<td>
 					<div class="btn-group-toggle keywords" data-toggle="buttons">
 						<c:forEach var="interest" items="${interestList}">
-							<label class="btn btn-primary keywordBtn" style="margin: 10px 1px"> 
-								<input type="radio" name="interest" value="${ interest }" required>
+							<label class="btn btn-primary keywordBtn"
+								style="margin: 10px 1px"> <input type="radio"
+								name="interest" value="${ interest }" required>
 								${interest}
 							</label>
 						</c:forEach>
@@ -176,9 +172,8 @@ request.setAttribute("onOffList", onOffList);
 			</tr>
 			<tr>
 				<td class="keywordCatagory">👩‍ 수강인원</td>
-				<td class="keywordhr">
-					<input type="number"class="occupancyBtn" name="occupancy" min="1" max="200" required>
-				</td>
+				<td class="keywordhr"><input type="number" class="occupancyBtn"
+					name="occupancy" min="1" max="200" required></td>
 			</tr>
 			<tr>
 				<td class="keywordCatagory">🔖‍ 과거 수강</td>

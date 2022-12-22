@@ -18,7 +18,6 @@ public class RequestMapping {
 
     public void initMapping() {
     	// 각 uri에 대응되는 controller 객체를 생성 및 저장
-        //mappings.put("/", new ForwardController("index.jsp"));
         mappings.put("/", new ForwardController("index.jsp"));
         mappings.put("/home", new ForwardController("/home.jsp"));
         mappings.put("/user/login/form", new ForwardController("/user/loginForm.jsp"));
@@ -30,6 +29,7 @@ public class RequestMapping {
         mappings.put("/user/mypage", new myPageController());
         mappings.put("/user/mypage/edit", new ForwardController("/user/updateForm.jsp")); 
         mappings.put("/user/mypage/deleteDib", new DeleteDibController()); 
+        mappings.put("/user/mypage/othersDib", new OthersDibController());
         
         //mappings.put("/user/mypage/update", new UpdateUserController());
         //mappings.put("/user/list", new ListUserController());

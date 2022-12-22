@@ -15,9 +15,44 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 
+<title>Search Result</title>
 <style>
+.totalresult {
+	margin-top: 35px;
+	margin-left: 80px;
+	padding-top: 20px;
+}
+
 .recommendbox {
-	width: 100%;
+	display: inline-block;
+	float: right;
+	margin-right: 160px;
+}
+
+
+.list {
+	font-weight: bold;
+	font-size: 12px;
+	color: #6f263d;
+}
+
+.btn_wish {
+	float: right;
+	color: white;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+	border: solid 1px #6f263d;
+	border-radius: 0.7em;
+	background-color: #6f263d;
+	padding-top: 0px;
+	font-weight: bold;
+}
+
+.btn_wish:hover {
+	font-weight: bold;
+	border: 1px solid #6f263d;
+	background-color: #fff;
+	color: #6f263d;
+	transition-duration: 1s;
 }
 
 .card-border {
@@ -29,6 +64,15 @@
 	margin: auto;
 	margin-bottom: 20px;
 	padding: 3px;
+}
+
+.btn_delete {
+	font-size: 14px;
+	font-weight: bold;
+	border: none;
+	color: #6f263d;
+	float: right;
+	background-color: #fff;
 }
 
 .card-title {
@@ -48,30 +92,39 @@
 	font-weight: bold;
 	text-align: center;
 }
+
+.text-danger {
+	text-align: center;
+	font-weight: bold;
+}
 </style>
 </head>
 <body>
-	<div class="recommendbox">
-		<p class="list-cnt">💞 추천하는 강의 💞</p>
-		<c:forEach var="recLec" items="${recLecList}">
-			<div class="card-border card recommend-card" style="width: 15rem;">
-				<div class="card-body">
-					<h5 class="card-title">${recLec.title}</h5>
-					${recLec.professor}
-					<p></p>
-					${recLec.lecID} <br>${recLec.week}[${recLec.lecTime}]
-					${recLec.loc}
-				</div>
-			</div>
-		</c:forEach>
-	</div>
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous">
-	</script>
 	
+	<div class="totalresult">
+
+		<!--  인기 있는 강의 List -->
+		<div class="recommendbox">
+			<p class="list-cnt">💞 추천하는 강의 💞</p>
+			<c:forEach var="othDib" items="${othersDibList}">
+				<div class="card-border card recommend-card" style="width: 15rem;">
+					<div class="card-body">
+						<h5 class="card-title">${othDib.title}</h5>
+						${othDib.professor}
+						<p></p>
+						${othDib.lecID} <br>${othDib.week}[${othDib.lecTime}]
+						${othDib.loc}
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+			crossorigin="anonymous"></script>
+
+	</div>
 </body>
 </html>
-

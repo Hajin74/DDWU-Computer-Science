@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.DibDAO;
-import model.dto.DibDTO;
 import model.dto.LectureDTO;
 
 public class DibManager {
@@ -31,6 +30,10 @@ public class DibManager {
 	public int remove(String stuID, String lecID) throws SQLException {
 		//dib이 있는지 없는지를 jsp에서만 판단할지, 메소드를 추가할지..
 		return dibDAO.delete(stuID, lecID);
+	}
+	
+	public int duplicationCheck(String stuId, String lecId) throws SQLException {
+		return dibDAO.duplicationCheck(stuId, lecId);
 	}
 	
 	public int numOfLecDibs(String lecId) throws SQLException {

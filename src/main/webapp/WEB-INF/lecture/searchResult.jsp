@@ -17,6 +17,10 @@
 
 <title>Search Result</title>
 <style>
+.statusbox {
+	margin: 0 auto;
+}
+
 .totalresult {
 	margin-top: 35px;
 	margin-left: 80px;
@@ -70,12 +74,14 @@
 .btn_wish {
 	float: right;
 	color: white;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+	margin-left: 5px;
+	box-shadow : 0 2px 2px 0 rgba( 0, 0, 0, 0.25);
 	border: solid 1px #6f263d;
 	border-radius: 0.7em;
 	background-color: #6f263d;
 	padding-top: 0px;
 	font-weight: bold;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 
 .btn_wish:hover {
@@ -106,6 +112,17 @@
 	background-color: #fff;
 }
 
+.card-border {
+	color: #6f263d;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+	border: solid 1px #f1f1f1;
+	border-radius: 1em;
+	background-color: #fff;
+	margin: auto;
+	margin-bottom: 20px;
+	padding: 3px;
+}
+
 .card-title {
 	font-size: 16px;
 	font-weight: bold;
@@ -114,6 +131,15 @@
 .recommend-card {
 	text-align: center;
 	margin-bottom: 10px;
+}
+
+.btn_delete {
+	font-size: 14px;
+	font-weight: bold;
+	border: none;
+	color: #6f263d;
+	float: right;
+	background-color: #fff;
 }
 
 .list-cnt {
@@ -146,6 +172,10 @@ input[type=checkbox] {
 	margin-right: 10px;
 }
 
+.btn_status_delete {
+	color: #6f263d;
+	background-color: #fff;
+}
 </style>
 </head>
 <body>
@@ -153,31 +183,28 @@ input[type=checkbox] {
 	<jsp:include page="../header.jsp"></jsp:include>
 	<jsp:include page="../nav.jsp"></jsp:include>
 
+	<div class="statusbox">
+		<form class="statusCheckFormCss" name="statusCheckForm">
+			<input type="checkbox" name="statusCheck" id="statusCheck"
+				value="statusIncludeO" /> 과거 수강한 강의 X
+		</form>
+
+		<c:forEach var="lec" items="${resultLecList}">
+			<div class="card-border card" style="width: 30rem;">
+				<div class="card-body">
+					<span class="card-title"> ${lec.title}
+						<button class="btn_delete" type="button">X</button>
+					</span><br> ${lec.professor}
+					<p></p>
+					${lec.lecID} <br>${lec.week}[${lec.lecTime}] ${lec.loc}
+					<button class="btn_wish" type="button">♡ 찜하기</button>
+					<button class="btn_wish" type="button">이미 수강됨</button>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
 
 	<div class="totalresult">
-
-		<div class="statusBox" style="border-bottom: solid 1px #f1f1f1; margin-right: 100px; margin-bottom: 50px;">
-			<form class="statusCheckFormCss" name="statusCheckForm">
-				<input type="checkbox" name="statusCheck" id="statusCheck"
-					value="statusIncludeO" /> 과거 수강한 강의 X
-			</form>
-	
-			<c:forEach var="lec" items="${resultLecList}">
-				<div class="card-border card" style="width: 30rem;">
-					<div class="card-body">
-						<span class="card-title"> ${lec.title}
-							<button class="btn_delete" type="button">X</button>
-						</span><br> ${lec.professor}
-						<p></p>
-						${lec.lecID} <br>${lec.week}[${lec.lecTime}] ${lec.loc}
-						<button class="btn_wish" type="button">♡ 찜하기</button>
-						<button class="btn_wish" type="button">이미 수강됨</button>
-					</div>
-				</div>
-			</c:forEach>
-			
-		</div>
-
 		<div class="resultbox">
 			<p class="list-cnt">📦 검색 결과 📦</p>
 			<div class="keywordbox">
@@ -196,18 +223,28 @@ input[type=checkbox] {
 			<c:forEach var="lec" items="${lecList}">
 				<div class="card-border card" style="width: 30rem;">
 					<div class="card-body">
-						<span class="card-title"> ${lec.title}
-							<button class="btn_delete" type="button">X</button>
-						</span><br> ${lec.professor}
+						<span class="card-title"> ${lec.title} </span><br>
+						${lec.professor}
 						<p></p>
 						${lec.lecID} <br>${lec.week}[${lec.lecTime}] ${lec.loc}
-						<button class="btn_wish" type="button">♡ 찜하기</button>
+						<form action="<c:url value='/lecture/searchResult/createDib'/>">
+							<button class="btn_wish" id="btn_before" name="lecID"
+								value="${lec.lecID}" onClick="checkUser()">♡ 찜하기</button>
 
-						<c:forEach var="resLec" items="${resultLecList}">
-							<c:if test="${lec.lecID eq resLec.lecID}">
-								<button class="btn_wish btn_status" type="button">수강됨</button>
-							</c:if>
-						</c:forEach>
+							<c:forEach var="resLec" items="${resultLecList}">
+								<c:choose>
+									<c:when test="${lec.lecID eq resLec.lecID}">
+										<button class="btn_wish btn_status" type="button"
+											onclick="status_Btn_Delete()">수강됨</button>
+									</c:when>
+
+									<c:otherwise>
+										<button class="btn_wish btn_status btn_status_delete"
+											type="button" onclick="status_Btn_Add()">수강</button>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</form>
 					</div>
 				</div>
 			</c:forEach>
@@ -236,4 +273,36 @@ input[type=checkbox] {
 
 	</div>
 </body>
+<script>
+	$("button").click(function() {
+		toggleClass(".btn_wish_active");
+	});
+
+	function checkUser() {
+		var userId = sessionStorage
+				.getItem(
+<%=session.getAttribute("userId")%>
+	);
+		console.log(userId);
+		if (userId == null)
+			alert("회원만 찜 할 수 있습니다.");
+	}
+
+	function changeBtn() {
+		const btn1 = document.getElementById('btn_before');
+
+		if (btn1.style.display !== 'none') {
+			btn1.style.display = 'none';
+		}
+
+	}
+
+	function status_Btn_Add() {
+		alert('해당 과목을 수강하셨습니다.');
+	}
+
+	function status_Btn_Delete() {
+		alert('해당 과목을 수강 취소했습니다.');
+	}
+</script>
 </html>

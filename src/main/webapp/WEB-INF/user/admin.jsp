@@ -25,7 +25,6 @@
 	font-size: 18px;
 	margin-bottom: 10px;
 	font-weight: bold;
-	
 }
 
 .card-border {
@@ -47,7 +46,6 @@
 	float: right;
 	background-color: #fff;
 }
-
 </style>
 </head>
 
@@ -59,26 +57,25 @@
 		<div class="userList user-form">
 			<p class="list-cnt">📦 학생 리스트 📦</p>
 			<c:forEach var="user" items="${stuList}">
-					<div class="card-border card" style="width: 30rem;">
-						<div class="card-body">
-							<span class="card-title"> ${user.stuID} </span>
-							<button class="btn_delete" type="submit">해당 학생 삭제하기</button>
-						</div>
+				<div class="card-border card" style="width: 30rem;">
+					<div class="card-body">
+						<span class="card-title"> ${user.stuID} </span>
+						<button class="btn_delete" type="submit">해당 학생 삭제하기</button>
 					</div>
-			
+				</div>
+
 			</c:forEach>
 		</div>
 		<div class="lectureList user-form">
 			<p class="list-cnt">📦 강의 리스트 📦</p>
-	
+
 			<c:forEach var="lec" items="${lecList}">
 				<div class="card-border card" style="width: 30rem;">
 					<div class="card-body">
-						<span class="card-title"> ${lec.title}
-						</span><br> ${lec.professor}
+						<span class="card-title"> ${lec.title} </span><br>
+						${lec.professor}
 						<p></p>
-						${lec.lecID} <br>${lec.week}[${lec.lecTime}]
-						${lec.loc}
+						${lec.lecID} <br>${lec.week}[${lec.lecTime}] ${lec.loc}
 						<button class="btn_delete" type="submit">해당 강의 삭제하기</button>
 					</div>
 				</div>
