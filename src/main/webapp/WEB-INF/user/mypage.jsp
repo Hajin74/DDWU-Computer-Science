@@ -60,38 +60,8 @@
 	
 	<jsp:include page="../header.jsp"></jsp:include>
 	<jsp:include page="../nav.jsp"></jsp:include>
-	<div class="adminPage">
-		<div class="userList">
-			<p class="list-cnt">📦 학생 리스트 📦</p>
-			
-			<c:forEach var="user" items="${stuList}">
-					<div class="card-border card" style="width: 30rem;">
-						<div class="card-body">
-							<span class="card-title"> ${user.stuID} </span>
-							<button class="btn_delete" type="submit">지우기</button>
-						</div>
-					</div>
-			
-			</c:forEach>
-		</div>
-			<div class="lectureList">
-				<p class="list-cnt">📦 강의 리스트 📦</p>
-		
-				<c:forEach var="lec" items="${lecList}">
-					<div class="card-border card" style="width: 30rem;">
-						<div class="card-body">
-							<span class="card-title"> ${lec.title}
-							</span><br> ${lec.professor}
-							<p></p>
-							${lec.lecID} <br>${lec.week}[${lec.lecTime}]
-							${lec.loc}
-							<button class="btn_delete" type="submit">지우기</button>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
-	</div>
-		
+	<jsp:include page="../user/admin.jsp"></jsp:include>
+	
 	<% 
 	} else { 
 		System.out.println("일반사용자시네요");

@@ -124,7 +124,6 @@
 	margin-bottom: 10px;
 	font-weight: bold;
 	text-align: center;
-
 }
 
 .text-danger{
