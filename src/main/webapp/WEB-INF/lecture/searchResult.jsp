@@ -228,24 +228,48 @@ input[type=checkbox] {
 			<c:forEach var="lec" items="${lecList}">
 				<div class="card-border card" style="width: 30rem;">
 					<div class="card-body">
-						<span class="card-title"> ${lec.title} <!-- <button class="btn_delete" type="button">X</button>  -->
-						</span><br> ${lec.professor}
-						<p></p>
-						${lec.lecID} <br>${lec.week}[${lec.lecTime}] ${lec.loc}
-						<button class="btn_wish" type="button">♡ 찜하기</button>
-
-						 
+						<span class="card-title"> ${lec.title} </span><br> 
+						${lec.professor} <p></p> ${lec.lecID} <br>${lec.week}[${lec.lecTime}] ${lec.loc}
+						
+						<!--  찜  -->
+						<!-- 파라미터로 받은 dibList 해당 강의가 있는지 확인하는 코드 -->
+						<c:forEach var="dib" items="${dibList}">
+							<c:set var="isIn" value="false"/>
+							<c:choose>
+								<c:when test="${dib eq lec.lecID}">
+									<c:set var="isIn" value="true"/> 
+								</c:when>							
+							</c:choose>
+						</c:forEach>
+						
+						<!-- dibList 해당 강의가 있다면 해제버튼, 아니면 찜하기 버튼 -->
+						<c:choose>
+							<c:when test="${isIn eq 'true'}">
+								<form action="<c:url value='/user/mypage/deleteDib'/>">
+									<button class="btn_wish" id="btn_after" 
+									name="lecID" value="${lec.lecID}" onClick="checkUser()" >X 찜해제</button>
+								</form>	
+							</c:when>
+							<c:otherwise>
+								<form action="<c:url value='/lecture/searchResult/createDib'/>">
+									<button class="btn_wish" id="btn_before" 
+									name="lecID" value="${lec.lecID}" onClick="checkUser()" >♡ 찜하기</button>
+								</form>	
+							</c:otherwise>
+						</c:choose>
+						
+						<!-- 수강  -->
 						<c:set var="statusCheck" value="true" />
 						<c:set var="loop_flag" value="true" />
 
-						<form method="POST"
+						<form method="POST" style="color: yellow;"
 							action="<c:url value='/lecture/searchResult/status'/>">
 							<c:forEach var="resLec" items="${resultLecList}">
 								<c:if test="${loop_flag}">
 									<c:if test="${lec.lecID eq resLec.lecID}">
 										<button class="btn_wish btn_status" type="submit"
 											name="statusId" value="${lec.lecID}"
-											onclick="status_Btn_Delete()" style="margin-top:-23px;">수강됨</button>
+											onclick="status_Btn_Delete()" >수강됨</button>
 										<c:set var="statusCheck" value="false" />
 										<c:set var="loop_flag" value="false" />
 									</c:if>
@@ -254,7 +278,7 @@ input[type=checkbox] {
 							</c:forEach>
 							<c:if test="${statusCheck}">
 								<button class="btn_wish btn_status btn_status_delete"
-									type="submit" onclick="status_Btn_Add()" name="statusId" style="margin-top:-23px;"
+									type="submit" onclick="status_Btn_Add()" name="statusId"
 									value="${lec.lecID}">수강</button>
 							</c:if>
 						</form>
