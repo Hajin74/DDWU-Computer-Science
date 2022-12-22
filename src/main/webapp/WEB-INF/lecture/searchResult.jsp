@@ -247,13 +247,13 @@ input[type=checkbox] {
 							<c:when test="${isIn eq 'true'}">
 								<form action="<c:url value='/user/mypage/deleteDib'/>">
 									<button class="btn_wish" id="btn_after" 
-									name="lecID" value="${lec.lecID}" onClick="checkUser()" >X 찜해제</button>
+									name="lecID" value="${lec.lecID}"  >X 찜해제</button>
 								</form>	
 							</c:when>
 							<c:otherwise>
 								<form action="<c:url value='/lecture/searchResult/createDib'/>">
 									<button class="btn_wish" id="btn_before" 
-									name="lecID" value="${lec.lecID}" onClick="checkUser()" >♡ 찜하기</button>
+									name="lecID" value="${lec.lecID}" >♡ 찜하기</button>
 								</form>	
 							</c:otherwise>
 						</c:choose>
@@ -320,7 +320,7 @@ input[type=checkbox] {
 		var userId = sessionStorage.getItem(<%=session.getAttribute("userId")%>);
 		//alert(userId);
 		if (userId == null)
-			alert("회원만 찜 할 수 있습니다.");
+			alert('회원가입 후 찜 선택/해제 할 수 있습니다.');
 	}
 
 	function changeBtn() {
