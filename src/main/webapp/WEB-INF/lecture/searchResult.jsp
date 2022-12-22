@@ -84,6 +84,14 @@
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 
+
+button.btn_wish_active {
+	font-weight: bold;
+	border: 1px solid #6f263d;
+	background-color: #fff;
+	color: #6f263d;
+}
+
 .btn_wish:hover {
 	font-weight: bold;
 	border: 1px solid #6f263d;
@@ -183,11 +191,12 @@ input[type=checkbox] {
 	<jsp:include page="../header.jsp"></jsp:include>
 	<jsp:include page="../nav.jsp"></jsp:include>
 
-	<div class="statusbox">
+	<div class="statusbox" style=" padding-top: 30px; padding-bottom: 30px; border-bottom: 1px solid #efefef; border-top: 1px solid #efefef;">
 		<c:if test="${resultLecList ne '[]'}">
-			<form class="statusCheckFormCss" name="statusCheckForm">
+<!-- 			<form class="statusCheckFormCss" name="statusCheckForm">
 				<input type="checkbox" name="statusCheck" id="statusCheck" value="statusIncludeO" /> 과거 수강한 강의 X
-			</form>
+			</form> -->
+			<h1 class="statusTitle" style="text-align: center; color: #6f263d; font-size: 17px; font-weight: bold; margin-bottom: 10px;">과거 수강한 강의</h1>
 	
 			<c:forEach var="lec" items="${resultLecList}">
 				<div class="card-border card" style="width: 30rem;">
@@ -205,7 +214,7 @@ input[type=checkbox] {
 		</c:if>
 	</div>
 
-	<div class="totalresult">
+	<div class="totalresult" style="display:flex; flex-direction: row; justify-content:space-evenly;">
 		<div class="resultbox">
 			<p class="list-cnt">📦 검색 결과 📦</p>
 			<div class="keywordbox">
@@ -270,8 +279,8 @@ input[type=checkbox] {
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-			crossorigin="anonymous"></script>
-
+			crossorigin="anonymous">
+		</script>
 	</div>
 </body>
 <script>
@@ -280,11 +289,8 @@ input[type=checkbox] {
 	});
 
 	function checkUser() {
-		var userId = sessionStorage
-				.getItem(
-<%=session.getAttribute("userId")%>
-	);
-		console.log(userId);
+		var userId = sessionStorage.getItem(<%=session.getAttribute("userId")%>);
+		//alert(userId);
 		if (userId == null)
 			alert("회원만 찜 할 수 있습니다.");
 	}
@@ -295,7 +301,6 @@ input[type=checkbox] {
 		if (btn1.style.display !== 'none') {
 			btn1.style.display = 'none';
 		}
-
 	}
 
 	function status_Btn_Add() {

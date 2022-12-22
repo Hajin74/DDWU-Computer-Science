@@ -18,6 +18,7 @@
 
 <title>My Page</title>
 <style>
+/*
 .structure {
 	width: 90%;
 	margin: 10px auto;
@@ -36,6 +37,7 @@
 	float: right;
 	
 }
+*/
 </style>
 
 </head>
@@ -67,21 +69,33 @@
 		<jsp:include page="../header.jsp"></jsp:include>
 		<jsp:include page="../nav.jsp"></jsp:include>
 	
-		<div class="structure">
-			<div class="info">
+		<div class="structure" style="width: 100%; border-top: 1px solid #efefef; display:flex; flex-direction: row; justify-content: space-evenly;">
+		
+			
+			<div class="info" style="width: 20%;" >
 		        <jsp:include page="userInfo.jsp">
 					<jsp:param name="userId" value="userId" />
 					<jsp:param name="major" value="major" />
 		        </jsp:include>
       		</div>
-
-			<div class="dList"><jsp:include page="dibList.jsp">
+			<div class="rList" style="width: 30%; border-right: 1px solid #efefef; border-left: 1px solid #efefef; padding: 0 50px;">
+				<jsp:include page="recommendList.jsp">
+					<jsp:param name="othersDibList" value="${othersDibList}" />
+				</jsp:include>
+			</div>
+			
+			
+			<div class="dList" >
+				<jsp:include page="dibList.jsp" >
 					<jsp:param name="userID" value="userID" />
 					<jsp:param value="dibList" name="dibList" />
-				</jsp:include></div>
-			<div class="rList"><jsp:include page="recommendList.jsp">
-					<jsp:param name="othersDibList" value="${othersDibList}" />
-				</jsp:include></div>
+				</jsp:include>
+			</div>
+			
+			
+			
+			
+			
 		</div>
 	<% } %>
 	</c:if>

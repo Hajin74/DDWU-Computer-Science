@@ -17,18 +17,9 @@
 
 <title>Search Result</title>
 <style>
-.totalresult {
-	margin-top: 35px;
-	margin-left: 80px;
-	padding-top: 20px;
-}
-
 .recommendbox {
-	display: inline-block;
-	float: right;
-	margin-right: 160px;
+	margin-top: 30px;
 }
-
 
 .list {
 	font-weight: bold;
@@ -37,7 +28,6 @@
 }
 
 .btn_wish {
-	float: right;
 	color: white;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
 	border: solid 1px #6f263d;
@@ -100,31 +90,24 @@
 </style>
 </head>
 <body>
-
-	
-	<div class="totalresult">
-
-		<!--  인기 있는 강의 List -->
-		<div class="recommendbox">
-			<p class="list-cnt">💞 추천하는 강의 💞</p>
-			<c:forEach var="othDib" items="${othersDibList}">
-				<div class="card-border card recommend-card" style="width: 15rem;">
-					<div class="card-body">
-						<h5 class="card-title">${othDib.title}</h5>
-						${othDib.professor}
-						<p></p>
-						${othDib.lecID} <br>${othDib.week}[${othDib.lecTime}]
-						${othDib.loc}
-					</div>
+	<div class="recommendbox">
+		<p class="list-cnt">💞 추천하는 강의 💞</p>
+		<c:forEach var="othDib" items="${othersDibList}">
+			<div class="card-border card recommend-card" style="width: 15rem;">
+				<div class="card-body">
+					<h5 class="card-title">${othDib.title}</h5>
+					${othDib.professor}
+					<p></p>
+					${othDib.lecID} <br>${othDib.week}[${othDib.lecTime}]
+					${othDib.loc}
 				</div>
-			</c:forEach>
-		</div>
-
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-			crossorigin="anonymous"></script>
-
+			</div>
+		</c:forEach>
 	</div>
+	
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
 </body>
 </html>

@@ -37,7 +37,7 @@
 <link href="form-validation.css" rel="stylesheet">
 
 <body>
-	<div class="container">
+	<div class="container" style="margin-top:30px;">
 		<div class="row userInfo" id="first">
 			<h4 class="color-point">🎓 회원 정보 🎓</h4>
 			<div class="input-form col-md-12 mx-auto">
@@ -55,7 +55,7 @@
 					</div>
 					<div class="mb-3 form-group">
 						<input type="submit" value="수정하기"
-							class="btn-block w-100 btn btn-primary editbtn">
+							class="btn-block w-100 btn btn-primary editbtn" style="	background-color: #6f263d; border:none;">
 					</div>
 				</form>
 			</div>
