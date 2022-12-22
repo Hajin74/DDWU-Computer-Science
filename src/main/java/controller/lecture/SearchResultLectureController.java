@@ -26,18 +26,14 @@ public class SearchResultLectureController implements Controller {
 			HttpSession session = request.getSession();
 			String userId = (String) session.getAttribute("userId");
 			
-			log.debug("userId : {}", userId);
-			log.debug("status : {}", request.getParameter("status"));
+			//log.debug("userId : {}", userId);
+			//log.debug("status : {}", request.getParameter("status"));
 			LectureManager manager = LectureManager.getInstance();
 
 			List<LectureDTO> hotLecList = manager.findLecturesTop5();
 			List<LectureDTO> lecList = new ArrayList<LectureDTO>();
 			List<LectureDTO> resultLecList  = new ArrayList<LectureDTO>();
 			
-			String[] slist = manager.findLecturesOtherStudentDib("test3", "교선B2007");
-			for (String lec : slist )
-				log.debug("slist : {}", lec);
-
 			if (Integer.valueOf(request.getParameter("status")) == 1) {
 				lecList = manager.findLectureByKeywordAndStatusX(userId, request.getParameter("loc").substring(0, 1),
 						request.getParameter("lecTime").substring(0, 1), request.getParameter("interest"),
@@ -49,6 +45,7 @@ public class SearchResultLectureController implements Controller {
 						request.getParameter("lecTime").substring(0, 1), request.getParameter("interest"),
 						request.getParameter("lecType"), request.getParameter("priority"));
 				
+				// 전체 검색
 				for (LectureDTO lec : lecList )
 					log.debug("lec STATUS O : {}", lec);
 				
@@ -57,29 +54,6 @@ public class SearchResultLectureController implements Controller {
 					log.debug("statusList : {}", lec);
 			}
 			
-			
-			
-			
-			
-			/*
-			 * if (request.getMethod().equals("GET")) {
-			 * 
-			 * //manager.findLectureByKeywordAndStatusX(userId,
-			 * request.getParameter("loc").substring(0, 1),
-			 * request.getParameter("lecTime").substring(0, 1), //
-			 * request.getParameter("interest"), request.getParameter("lecType"),
-			 * request.getParameter("priority"));
-			 * 
-			 * 
-			 * List<LectureDTO> lecList2 = manager.searchLecturesWithStatusX(lecList,
-			 * userId);
-			 * 
-			 * System.out.println("list값"+lecList2.get(2));
-			 * 
-			 * request.setAttribute("lecList", lecList2);
-			 * 
-			 * return "/lecture/searchResult.jsp"; }
-			 */
 
 			ArrayList<String> keywordList = new ArrayList<String>();
 			keywordList.add("강의실: " + request.getParameter("loc"));

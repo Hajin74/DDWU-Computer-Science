@@ -9,6 +9,10 @@ import controller.lecture.*;
 import controller.user.*;
 import controller.dib.*;
 
+import controller.status.CreateStatusController;
+import controller.status.DeleteStatusController;
+import controller.status.StatusController;
+
 
 public class RequestMapping {
     private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -48,6 +52,8 @@ public class RequestMapping {
         mappings.put("/lecture/searchResult", new SearchResultLectureController());
         mappings.put("/lecture/searchResult/createDib", new CreateDibController());
                 
+        mappings.put("/lecture/searchResult/status", new StatusController());
+        
         logger.info("Initialized Request Mapping!");
     }
 
