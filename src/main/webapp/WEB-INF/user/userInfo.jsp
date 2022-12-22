@@ -5,8 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
 <style>
 .input-form {
 	max-width: 500px;
@@ -37,10 +35,8 @@
 
 <!-- Custom styles for this template -->
 <link href="form-validation.css" rel="stylesheet">
+
 <body>
-
-
-
 	<div class="container">
 		<div class="row userInfo" id="first">
 			<h4 class="color-point">🎓 회원 정보 🎓</h4>
@@ -65,35 +61,7 @@
 			</div>
 		</div>
 	</div>
-
-
-	<!-- 
-	<div class="container">
-		<div class="row userInfo">
-			<h3 class="color-point">🎓 회원 정보 🎓</h3>
-			<div class="input-form col-md-12 mx-auto">
-
-				<form method="POST" action="<c:url value='/user/mypage/edit' />">
-					<div class="form-group mb-3">
-						<label for="userId">ID (학번)</label> <input type="text"
-							class="form-control" name="userId" id="userId" disabled />
-
-					</div>
-
-					<div class="form-group mb-3">
-						<label for="major">학과</label> <input type="text"
-							class="form-control" name="major" id="major" disabled />
-					</div>
-					<div class="mb-3 form-group">
-						<input type="submit"
-							class="btn-block w-100 btn btn-primary editbtn">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	-->
-	
+		
 	<script>
 		var major = ${major};
 		request.setAttribute("major", major);

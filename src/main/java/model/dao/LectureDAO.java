@@ -188,6 +188,8 @@ public class LectureDAO {
 						rs.getInt("cno"));
 				lectureList.add(lecture); 
 			}
+			System.out.println("lecture dao, lectureList: " + lectureList);
+			
 			return lectureList;
 		} catch (Exception ex) {
 			jdbcUtil.rollback();

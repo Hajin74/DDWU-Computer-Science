@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import model.dao.DibDAO;
+import model.dto.DibDTO;
 import model.dto.LectureDTO;
 
 public class DibManager {
