@@ -46,6 +46,12 @@
 				
 				<h1 class="h2 mb-3 color-point">LEcommend</h1>
 
+				<div>
+					<c:if test="${loginFailed}">
+						<h6 class="text-danger"><c:out value="존재하지 않는 아이디입니다. "/></h6>
+					</c:if>
+				</div>
+	
 				<div class="form-floating">
 					<input type="text" name="stuId" class="form-control" id="floatingInput"
 						placeholder="ID"> <label for="floatingInput">ID</label>
