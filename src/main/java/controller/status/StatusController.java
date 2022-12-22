@@ -34,15 +34,10 @@ public class StatusController implements Controller {
 			} else {
 				if(statusCnt == 0) {
 					manager.create(statusCnt, stuId, lecId);
-					response.setContentType("text/html; charset=UTF-8");
-				    PrintWriter out = response.getWriter();
-				    out.println("<script>alert('로그인 후 수강여부를 표시할 수 있습니다.'); history.go(-1);</script>");
-				    out.flush();
-				    response.flushBuffer();
-				    out.close();
 				}
-				else 
+				else {
 					manager.delete(statusCnt, stuId, lecId);
+				}
 			}
 			
 		} catch (Exception e) {
