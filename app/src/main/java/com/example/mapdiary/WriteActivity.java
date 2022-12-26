@@ -46,7 +46,6 @@ public class WriteActivity extends AppCompatActivity {
                 Intent readIntent = new Intent(getApplicationContext(), ReadActivity.class);
                 startActivity(readIntent);
                 finish();
-            }
         });
     }
 }
