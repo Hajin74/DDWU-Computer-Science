@@ -38,8 +38,8 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/read_recyclerView"
+    <ListView
+        android:id="@+id/read_listView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"
