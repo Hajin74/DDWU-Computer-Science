@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class ReadActivity extends AppCompatActivity {
 
@@ -32,6 +36,35 @@ public class ReadActivity extends AppCompatActivity {
         diaryDBHelper = new DiaryDBHelper(this);
         diaryCursorAdapter = new DiaryCursorAdapter(this, R.layout.diary_item, null);
         diaryList.setAdapter(diaryCursorAdapter);
+        
+        // 리스트 뷰 롱클릭 : 삭제
+        diaryList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int pos, long id) {
+                final long targetId = id;
+                TextView tvLocation = view.findViewById(R.id.diary_location_value);
+
+                new AlertDialog.Builder(ReadActivity.this).setTitle("삭제 확인")
+                        .setMessage("삭제하시겠습니까?")
+                        .setPositiveButton("삭제하기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SQLiteDatabase db = diaryDBHelper.getWritableDatabase();
+
+                                String whereClause = DiaryDBHelper.COL_ID + "=?";
+                                String[] whereArgs = new String[] { String.valueOf(targetId) };
+
+                                db.delete(DiaryDBHelper.TABLE_NAME, whereClause, whereArgs);
+                                diaryDBHelper.close();
+                                readAllContacts();		// 삭제 상태를 반영하기 위하여 전체 목록을 다시 읽음
+                            }
+                        })
+                        .setNegativeButton("취소", null)
+                        .show();
+
+                return true;
+            }
+        });
     }
 
     public void onClick(View view) {
