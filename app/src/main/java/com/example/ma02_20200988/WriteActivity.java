@@ -1,4 +1,4 @@
-package com.example.mapdiary;
+package com.example.ma02_20200988;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;

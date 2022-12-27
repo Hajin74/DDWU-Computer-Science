@@ -1,9 +1,8 @@
-package com.example.mapdiary;
+package com.example.ma02_20200988;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import androidx.annotation.Nullable;
 

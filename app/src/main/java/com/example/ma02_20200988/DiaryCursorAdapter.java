@@ -1,21 +1,12 @@
-package com.example.mapdiary;
+package com.example.ma02_20200988;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DiaryCursorAdapter extends CursorAdapter {
     private static final String TAG = "DiaryRAdapter";

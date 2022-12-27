@@ -1,4 +1,4 @@
-package com.example.mapdiary;
+package com.example.ma02_20200988;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,22 +24,28 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationResult;
 
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.PlaceTypes;
+import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+import ddwu.mobile.place.placebasic.OnPlaceBasicResult;
+import ddwu.mobile.place.placebasic.PlaceBasicManager;
+import ddwu.mobile.place.placebasic.pojo.PlaceBasic;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
     private Location mLocation;
     private GoogleMap mGoogleMap;
     private String mAddress;
+
+    private PlaceBasicManager placeBasicManager;
+    private PlacesClient placesClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +82,32 @@ public class MainActivity extends AppCompatActivity {
                 mLocCallback,
                 Looper.getMainLooper()
         );
+
+        // 구글 place api
+        placeBasicManager = new PlaceBasicManager(getString(com.example.ma02_20200988.R.string.google_api_key));
+        placeBasicManager.setOnPlaceBasicResult(new OnPlaceBasicResult() {
+            @Override
+            public void onPlaceBasicResult(List<PlaceBasic> list) {
+                if (list.size() == 0) {
+                    Toast.makeText(MainActivity.this, "데이터가 없습니다.", Toast.LENGTH_SHORT).show();
+                } else {
+                    for (PlaceBasic place : list) {
+                        Log.d(TAG, place.toString());
+
+                        MarkerOptions options = new MarkerOptions()
+                                .title(place.getName())
+                                .position(new LatLng(place.getLatitude(), place.getLongitude()))
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+                        Marker marker = mGoogleMap.addMarker(options);
+                        /*현재 장소의 place_id 를 각각의 마커에 보관*/
+                        marker.setTag(place.getPlaceId());
+                    }
+                }
+            }
+        });
+
+        Places.initialize(getApplicationContext(), getString(R.string.google_api_key));
+        placesClient = Places.createClient(this);
 
         // 네비게이션
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_main);
@@ -106,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.food_btn:
                 Toast.makeText(MainActivity.this, "음식점 찾기 버튼", Toast.LENGTH_SHORT).show();
+                getLastLocation();
+                Log.d("mLocation: ", String.valueOf(mLocation.getLatitude()));
+                placeBasicManager.searchPlaceBasic(mLocation.getLatitude(), mLocation.getLongitude(), 200, PlaceTypes.RESTAURANT);
                 break;
             case R.id.cafe_btn:
                 Toast.makeText(MainActivity.this, "카페 찾기 버튼", Toast.LENGTH_SHORT).show();
@@ -155,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onMapReady(@NonNull GoogleMap googleMap) {
             mGoogleMap = googleMap;
-            Toast.makeText(MainActivity.this, "구글맵 콜백", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(MainActivity.this, "구글맵 콜백", Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -170,13 +208,16 @@ public class MainActivity extends AppCompatActivity {
                             double lat = location.getLatitude();
                             double lng = location.getLongitude();
                             LatLng myLocation = new LatLng(lat, lng);
+                            executeGeocoding(location);
 
                             MarkerOptions markerOptions = new MarkerOptions();
-                            markerOptions.position(myLocation).title("내 위치");
+                            markerOptions
+                                    .position(myLocation)
+                                    .title("내 위치")
+                                    .snippet(mAddress);
+
                             mGoogleMap.addMarker(markerOptions);
                             mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 17));
-//                            executeGeocoding(location);
-//
 //                            Toast.makeText(MainActivity.this, String.format("(%.6f, %.6f)", lat, lng), Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(MainActivity.this, "위치가 없습니다.", Toast.LENGTH_SHORT).show();
@@ -214,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
                 double lng = loc.getLongitude();
                 mLocation = loc;
                 mLatLng = new LatLng(lat, lng);
-                Toast.makeText(MainActivity.this, String.format("위치 콜백: (%.6f, %.6f)", lat, lng), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, String.format("위치 콜백: (%.6f, %.6f)", lat, lng), Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -252,7 +293,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(List<Address> addresses) {
             Address address = addresses.get(0);
             mAddress = address.getAddressLine(0);
-            Toast.makeText(MainActivity.this, address.getAddressLine(0), Toast.LENGTH_SHORT ).show();
+//            Toast.makeText(MainActivity.this, "주소: " + mAddress, Toast.LENGTH_SHORT ).show();
         }
     }
 }
