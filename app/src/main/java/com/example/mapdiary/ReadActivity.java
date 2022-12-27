@@ -14,8 +14,7 @@ import android.widget.ListView;
 
 public class ReadActivity extends AppCompatActivity {
 
-    final static String dbName = "diary.db";
-    final static int dbVersion = 1;
+    final static String TAG = "ReadActivity";
 
     ListView diaryList = null;
     DiaryDBHelper diaryDBHelper;
@@ -30,22 +29,19 @@ public class ReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_read);
 
         diaryList = (ListView) findViewById(R.id.read_listView);
-        diaryDBHelper = new DiaryDBHelper(this, dbName, null, dbVersion);
+        diaryDBHelper = new DiaryDBHelper(this);
         diaryCursorAdapter = new DiaryCursorAdapter(this, R.layout.diary_item, null);
         diaryList.setAdapter(diaryCursorAdapter);
-        
-        // 리스트 뷰
+    }
 
-        // 뒤로가기
-        ImageView goHome = findViewById(R.id.go_home_from_read);
-        goHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    public void onClick(View view) {
+        switch(view.getId()) {
+            case R.id.go_home_from_read:
                 Intent homeIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(homeIntent);
                 finish();
-            }
-        });
+                break;
+        }
     }
 
     @Override
@@ -59,8 +55,9 @@ public class ReadActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (cursor != null)
+        if (cursor != null) {
             cursor.close();
+        }
     }
 
     private void readAllContacts() {

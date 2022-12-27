@@ -3,6 +3,7 @@ package com.example.mapdiary;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -26,9 +27,9 @@ public class DiaryDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sql = "CREATE TABLE " + TABLE_NAME+ " ( " + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_LOCATION + "TEXT, " + COL_CONTENT + " TEXT);";
+        sql = "CREATE TABLE " + TABLE_NAME + " ( " + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_LOCATION + " TEXT, " + COL_CONTENT + " TEXT );";
         sqLiteDatabase.execSQL(sql);
-        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_NAME + " VALUES (NULL, 'lat/lng: (37.560961, 126.904960)', '3학년 2학기 마지막 시험을 봤다.');");
+//        sqLiteDatabase.execSQL("INSERT INTO " + TABLE_NAME + " VALUES (NULL, 'lat/lng: (37.560961, 126.904960)', '팝콘');");
     }
 
     @Override

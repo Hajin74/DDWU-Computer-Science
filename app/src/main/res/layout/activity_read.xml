@@ -32,6 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:onClick="onClick"
             android:src="@drawable/ic_baseline_home_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,6 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_read" />
+        app:layout_constraintTop_toBottomOf="@id/header_read"
+        tools:listitem="@layout/diary_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
