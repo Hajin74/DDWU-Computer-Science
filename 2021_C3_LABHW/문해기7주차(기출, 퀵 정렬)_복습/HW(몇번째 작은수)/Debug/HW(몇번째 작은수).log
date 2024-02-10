@@ -1,0 +1,4 @@
+﻿  HW(몇번째 작은수).c
+C:\Users\yoonm\Desktop\문제해결기법\문해기7주차(기출, 퀵 정렬)_복습\HW(몇번째 작은수)\HW(몇번째 작은수).c(10,17): warning C4013: 'partition'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\yoonm\Desktop\문제해결기법\문해기7주차(기출, 퀵 정렬)_복습\HW(몇번째 작은수)\HW(몇번째 작은수).c(48,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  HW(몇번째 작은수).vcxproj -> C:\Users\yoonm\Desktop\문제해결기법\문해기7주차(기출, 퀵 정렬)_복습\Debug\HW(몇번째 작은수).exe

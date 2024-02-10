@@ -1,0 +1,3 @@
+﻿  LAB1_re.c
+C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\LABHW11\LAB1_re\LAB1_re.c(58,7): warning C4101: 'decodedSentence' :참조되지 않은 지역 변수입니다.
+  LAB1_re.vcxproj -> C:\Users\yoonm\OneDrive\바탕 화면\문제해결기법\LABHW11\Debug\LAB1_re.exe

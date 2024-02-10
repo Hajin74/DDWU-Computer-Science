@@ -1,0 +1,3 @@
+﻿  삽입정렬또복습.c
+C:\Users\yoonm\Desktop\문제해결기법\정렬_조합_복습\삽입정렬또복습\삽입정렬또복습.c(22,6): warning C4101: 'pivot' :참조되지 않은 지역 변수입니다.
+  삽입정렬또복습.vcxproj -> C:\Users\yoonm\Desktop\문제해결기법\정렬_조합_복습\Debug\삽입정렬또복습.exe

@@ -1,0 +1,4 @@
+﻿  HW(Max_subarray).c
+C:\Users\yoonm\Desktop\문제해결기법\LABHW6\HW(Max_subarray)\HW(Max_subarray).c(62,18): warning C4013: 'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\yoonm\Desktop\문제해결기법\LABHW6\HW(Max_subarray)\HW(Max_subarray).c(54): warning C4715: 'max_subarray': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  HW(Max_subarray).vcxproj -> C:\Users\yoonm\Desktop\문제해결기법\LABHW6\Debug\HW(Max_subarray).exe
