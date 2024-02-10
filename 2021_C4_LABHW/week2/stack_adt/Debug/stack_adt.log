@@ -1,0 +1,5 @@
+﻿  stack_adt.c
+C:\Users\yoonm\OneDrive\바탕 화면\자료구조\week2\stack_adt\stack_adt.c(44,7): warning C4013: 'exit'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\yoonm\OneDrive\바탕 화면\자료구조\week2\stack_adt\stack_adt.c(50): warning C4715: 'pop': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\yoonm\OneDrive\바탕 화면\자료구조\week2\stack_adt\stack_adt.c(61): warning C4715: 'peek': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  stack_adt.vcxproj -> C:\Users\yoonm\OneDrive\바탕 화면\자료구조\week2\Debug\stack_adt.exe
