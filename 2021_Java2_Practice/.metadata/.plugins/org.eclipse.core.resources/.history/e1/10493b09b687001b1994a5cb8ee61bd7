@@ -1,0 +1,27 @@
+// 컴퓨터학과 20200988 유하진
+public class Practice23 {
+	
+	public static void intArray(int[][] arr) {
+		for(int i = 0; i < 3; i++) {
+			for(int j = 0; j < 4; j++) {
+				System.out.print(arr[i][j] + "\t");
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void main(String[] args) {
+		int[][] arr1 = new int[3][4];
+		
+		for(int i = 0; i < 3; i++) {
+			for(int j = 0; j < 4; j++) {
+				arr1[i][j] = (j + 1);
+			}
+		}
+		intArray(arr1);
+		
+		
+
+	}
+
+}

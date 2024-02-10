@@ -1,0 +1,42 @@
+// 컴퓨터학과 20200988 유하진
+import java.util.Random;
+
+public class Practice19 {
+
+	public static int searchArray(int[] array, int key) {
+		int keyIndex = -1;
+		
+		for(int i = 0; i < array.length; i++) {
+			if(array[i] == key)
+				return i;
+		}
+		
+		return keyIndex;
+	}
+	
+	public static void printArray(int[] array) {
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(array[i] + "\t");
+		}
+		System.out.println();
+	}
+	
+	public static void main(String[] args) {
+		Random rg = new Random();
+		
+		int[] arr = new int[5];
+		int count = 1;
+		
+		do {
+			System.out.println("(" + count + "차 실행)");
+			count++;
+			
+			printArray(arr);
+			
+			int keyIndex = searchArray(arr, 100);
+			
+		} while(keyIndex = -1);
+
+	}
+
+}

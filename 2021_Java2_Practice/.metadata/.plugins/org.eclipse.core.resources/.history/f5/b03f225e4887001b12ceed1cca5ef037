@@ -1,0 +1,33 @@
+// 컴퓨터학과 20200988 유하진
+import java.util.Random;
+import java.util.Scanner;
+
+public class Practice18 {
+
+	public static int searchArray(int[] array, int key) {
+		
+	}
+	
+	public static void printArray(int[] array) {
+		
+	}
+	
+	public static void main(String[] args) {
+		Random rg = new Random();
+		Scanner sc = new Scanner(System.in);
+		
+		int[] arr = new int[10];
+		
+		for(int i = 0; i < arr.length; i++) {
+			arr[i] = rg.nextInt(101);
+		}
+		
+		printArray(arr);
+		
+		System.out.print("찾고 싶은 숫자를 입력하세요: ");
+		int key = sc.nextInt();
+		
+		sc.close();
+	}
+
+}
