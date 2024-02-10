@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;	
+}
+
+table {
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+table, td, th {
+	border: 1px solid black;
+}
+
+th {
+	background-color: #E6E6E6;
+}
+
+textarea {
+	overflow-y: scroll;
+}

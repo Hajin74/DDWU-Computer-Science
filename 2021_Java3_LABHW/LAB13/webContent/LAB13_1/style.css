@@ -1,0 +1,33 @@
+@charset "EUC-KR";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header img {
+	width: 100%;
+}
+
+section {
+	width: 100%;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+table, th, td {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+th {
+	background-color: #E6E6E6;
+}
+
+textarea {
+	oeverflow-y: scroll;
+}

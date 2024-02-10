@@ -1,0 +1,9 @@
+@charset "EUC-KR";
+
+input {
+	margin: 2px;
+}
+
+input[type="text"], input[type="password"] {
+	width: 200px;                      
+}

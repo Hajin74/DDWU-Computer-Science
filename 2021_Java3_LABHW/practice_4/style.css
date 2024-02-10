@@ -1,0 +1,48 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header img {
+	width: 100%;
+}
+
+h1 {
+	text-align: center;	
+}
+
+section {
+	width: 100%;
+}
+
+.main {
+	width: 100%;
+	border-top: 2px solid #B6B6B6;
+	margin-top: 20px;
+	display: flex;	
+	justify-content: center;
+}
+
+table {
+	margin-top: 20px;
+	border-collapse: collapse;
+	text-align: left;
+	font-size: 14px;
+}
+
+table img {
+	width: 80%;
+}
+
+table, th, td {
+/*
+	border: 1px solid black;
+*/
+	padding: 8px 0px;
+}
+
+input[type="text"], input[type="password"] {
+	background-color: #fcf69f;
+	border: 1px solid rgb(118, 118, 118);
+}
+
