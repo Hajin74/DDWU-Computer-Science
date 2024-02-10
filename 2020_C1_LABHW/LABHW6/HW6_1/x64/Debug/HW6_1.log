@@ -1,0 +1,4 @@
+﻿  HW6_1.c
+C:\Users\유하진\Desktop\프논이 유하진\LABHW6\HW6_1\HW6_1.c(9,10): warning C4477: 'scanf_s' : 서식 문자열 '%f'에 'float *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'double *'입니다.
+C:\Users\유하진\Desktop\프논이 유하진\LABHW6\HW6_1\HW6_1.c(9,10): message : 서식 문자열에서 '%lf'을(를) 사용하는 것이 좋습니다.
+  HW6_1.vcxproj -> C:\Users\유하진\Desktop\프논이 유하진\LABHW6\x64\Debug\HW6_1.exe
