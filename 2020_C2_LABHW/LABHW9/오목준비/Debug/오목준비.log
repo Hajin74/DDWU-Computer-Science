@@ -1,0 +1,3 @@
+﻿  오목준비.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW9\오목준비\오목준비.c(8,7): warning C4101: 'ch' :참조되지 않은 지역 변수입니다.
+  오목준비.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW9\Debug\오목준비.exe

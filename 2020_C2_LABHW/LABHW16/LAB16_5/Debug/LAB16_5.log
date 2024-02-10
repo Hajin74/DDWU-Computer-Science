@@ -1,0 +1,7 @@
+﻿  LAB16_5.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW16\LAB16_5\LAB16_5.c(15,18): warning C4244: '함수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW16\LAB16_5\LAB16_5.c(12,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW16\LAB16_5\LAB16_5.c(12,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW16\LAB16_5\LAB16_5.c(33): warning C4716: 'initTable': 값을 반환해야 합니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW16\LAB16_5\LAB16_5.c(58): warning C4716: 'printTable': 값을 반환해야 합니다.
+  LAB16_5.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW16\Debug\LAB16_5.exe

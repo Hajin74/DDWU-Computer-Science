@@ -1,0 +1,4 @@
+﻿  Project04_2.c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW7\Project04_2\Project04_2.c(66,7): warning C4013: 'srand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW7\Project04_2\Project04_2.c(76,23): warning C4013: 'rand'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  Project04_2.vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\LABHW7\Debug\Project04_2.exe

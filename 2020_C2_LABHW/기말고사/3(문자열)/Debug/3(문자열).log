@@ -1,0 +1,4 @@
+﻿  3(문자열).c
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\기말고사\3(문자열)\3(문자열).c(12,16): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\유하진\Desktop\컴퓨터 프로그래밍\기말고사\3(문자열)\3(문자열).c(10,9): warning C4101: 'length' :참조되지 않은 지역 변수입니다.
+  3(문자열).vcxproj -> C:\Users\유하진\Desktop\컴퓨터 프로그래밍\기말고사\Debug\3(문자열).exe
