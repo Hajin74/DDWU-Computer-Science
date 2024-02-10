@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="user.UserDTO" %>
+<%@ page import="user.UserDAO" %>
+<%@ page import="util.SHA256" %>
+<%@ page import="java.io.printWriter" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String userID = null;
+	String userPassword = null;
+	String userEmail = null;
+	
+	if(request.getParameter("userID") != null) {
+		userID = request.getParameter("userID");
+	}
+	
+	if(request.getParameter("userPassword") != null) {
+		userID = request.getParameter("userPassword");
+	}
+	
+	if(request.getParameter("userID") != null) {
+		userID = request.getParameter("userID");
+	}
+%>
